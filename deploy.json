@@ -5,7 +5,7 @@
     {
       "type": "Microsoft.Web/serverfarms",
       "apiVersion": "2022-03-01",
-      "name": "MyMvcAppServicePlan",
+      "name": "MyMvcApp",
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "F1",
