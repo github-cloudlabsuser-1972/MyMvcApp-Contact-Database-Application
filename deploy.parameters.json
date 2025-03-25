@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "appServicePlanName": {
+            "value": "MyAppServicePlan"
+        },
+        "webAppName": {
+            "value": "MyMvcApp"
+        },
+        "location": {
+            "value": "East US"
+        },
+        "sku": {
+            "value": "F1"
+        },
+        "databaseName": {
+            "value": "MyContactDatabase"
+        },
+        "databaseServerName": {
+            "value": "mydatabaseserver"
+        },
+        "databaseAdminLogin": {
+            "value": "adminuser"
+        },
+        "databaseAdminPassword": {
+            "value": "P@ssw0rd123"
+        }
+    }
+}
