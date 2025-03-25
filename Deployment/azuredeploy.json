@@ -1,0 +1,61 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+      {
+        "type": "Microsoft.Resources/resourceGroups",
+        "apiVersion": "2021-04-01",
+        "location": "[parameters('location')]",
+        "name": "GitHub-Copilot-Challenges",
+        "properties": {}
+      },
+      {
+        "type": "Microsoft.Web/serverfarms",
+        "apiVersion": "2022-03-01",
+        "name": "[parameters('appServicePlanName')]",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "F1",
+          "tier": "Free"
+        },
+        "properties": {
+          "reserved": false
+        }
+      },
+      {
+        "type": "Microsoft.Web/sites",
+        "apiVersion": "2022-03-01",
+        "name": "[parameters('webAppName')]",
+        "location": "[parameters('location')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
+        ],
+        "properties": {
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
+        }
+      }
+    ],
+    "parameters": {
+      "location": {
+        "type": "string",
+        "defaultValue": "East US",
+        "metadata": {
+          "description": "Ubicación para los recursos de Azure."
+        }
+      },
+      "appServicePlanName": {
+        "type": "string",
+        "defaultValue": "GitHubCopilotAppServicePlan",
+        "metadata": {
+          "description": "Nombre del App Service Plan."
+        }
+      },
+      "webAppName": {
+        "type": "string",
+        "defaultValue": "GitHubCopilotWebApp",
+        "metadata": {
+          "description": "Nombre de la aplicación web."
+        }
+      }
+    }
+  }
