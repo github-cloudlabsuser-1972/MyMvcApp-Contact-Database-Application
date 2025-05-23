@@ -55,4 +55,4 @@ jobs:
           app-name: 'GHCopilotLab3'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BAE3C2B7210D4A4C91304B0CF52A639B }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_60BF45A2D19E438E8A83D560ED26A012 }}
